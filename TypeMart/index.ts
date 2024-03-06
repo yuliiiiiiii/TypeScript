@@ -26,11 +26,13 @@ if(Number(product.price) >= 25) {
   shipping = 5;
 }
 
- if (shippingAddress.match('New York')) {
-   taxPercent = 0.1
- } else {
-   taxPercent = 0.05
- }
+//find if address contains 'New York'
+//string.match() returns an array with the matches, returns null if no match if found
+if (shippingAddress.match('New York')) {
+  taxPercent = 0.1
+} else {
+  taxPercent = 0.05
+}
 //  console.log('taxPercent: ', taxPercent)
 taxTotal = Number(product.price) * taxPercent;
 total = taxTotal + Number(product.price) + shipping;
