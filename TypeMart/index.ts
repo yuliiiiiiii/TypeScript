@@ -1,6 +1,6 @@
 import products from './products';
 
-const productName :string = 'hoodie';
+const productName :string = 'tote bag';
 
 let shipping :number
 let taxPercent :number
@@ -14,7 +14,7 @@ let product = products.filter(pro => {
   }
 })[0]
 
-console.log(product)
+// console.log(product)
 
 if (product.preOrder === 'true') {
   console.log("We'll send you a message when it's on the way")
@@ -26,9 +26,14 @@ if(Number(product.price) >= 25) {
   shipping = 5;
 }
 
-if (shippingAddress.match('New York')) {
-  taxPercent = 0.1
-} else {
-  taxPercent = 0.5
-}
-console.log('taxPercent: ', taxPercent)
+ if (shippingAddress.match('New York')) {
+   taxPercent = 0.1
+ } else {
+   taxPercent = 0.05
+ }
+//  console.log('taxPercent: ', taxPercent)
+taxTotal = Number(product.price) * taxPercent;
+total = taxTotal + Number(product.price) + shipping;
+// console.log('total: ', total)
+
+console.log('Product name: ',product.name, 'Shipping address: ',shippingAddress, 'Price of the product: ',product.price, 'Tax total: ',taxTotal, 'Shipping: ',shipping, 'Total amount: ',total)

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var products_1 = require("./products");
-var productName = 'hoodie';
+var productName = 'tote bag';
 var shipping;
 var taxPercent;
 var taxTotal;
@@ -12,7 +12,7 @@ var product = products_1.default.filter(function (pro) {
         return pro;
     }
 })[0];
-console.log(product);
+// console.log(product)
 if (product.preOrder === 'true') {
     console.log("We'll send you a message when it's on the way");
 }
@@ -27,6 +27,10 @@ if (shippingAddress.match('New York')) {
     taxPercent = 0.1;
 }
 else {
-    taxPercent = 0.5;
+    taxPercent = 0.05;
 }
-console.log('taxPercent: ', taxPercent);
+//  console.log('taxPercent: ', taxPercent)
+taxTotal = Number(product.price) * taxPercent;
+total = taxTotal + Number(product.price) + shipping;
+// console.log('total: ', total)
+console.log('Product name: ', product.name, 'Shipping address: ', shippingAddress, 'Price of the product: ', product.price, 'Tax total: ', taxTotal, 'Shipping: ', shipping, 'Total amount: ', total);
