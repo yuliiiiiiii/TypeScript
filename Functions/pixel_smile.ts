@@ -5,11 +5,13 @@ const creatImageData = (x=imageWidth, y=imageHeight):boolean[] => {
    let length = x * y;
    return new Array(length).fill(false)
 }
-
 const imageData = creatImageData()
 
 const drawDot = (x:number,y:number):void => {
-  
+  if(isPoitInImage(x, y)) {
+    let index = y * imageWidth + x;
+    imageData[index] = true;
+  }
 }
 
 const isPoitInImage = (x:number, y:number) :boolean => {
