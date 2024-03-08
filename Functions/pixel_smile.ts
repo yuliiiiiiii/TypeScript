@@ -14,6 +14,20 @@ const drawDot = (x:number,y:number):void => {
   }
 }
 
+const drawHorizontalLine = (x:number, y:number, length:number) => {
+  for (let i=x; i<x+length; i++) {
+    drawDot(i, y)
+  }
+}
+
+const drawVerticalLine = (x:number, y:number, height:number) => {
+  for (let i=y; i<y+height; i++) {
+    drawDot(x, i)
+  }
+};
+
+
+
 const isPoitInImage = (x:number, y:number) :boolean => {
   if(x>=0 && x<imageWidth && y>=0 && y<imageHeight) {
     return true
