@@ -7,6 +7,14 @@ const creatImageData = (x=imageWidth, y=imageHeight):boolean[] => {
 }
 const imageData = creatImageData()
 
+const isPoitInImage = (x:number, y:number) :boolean => {
+  if(x>=0 && x<imageWidth && y>=0 && y<imageHeight) {
+    return true
+  } else {
+    return false
+  }
+}
+
 const drawDot = (x:number,y:number):void => {
   if(isPoitInImage(x, y)) {
     let index = y * imageWidth + x;
@@ -26,12 +34,41 @@ const drawVerticalLine = (x:number, y:number, height:number) => {
   }
 };
 
-
-
-const isPoitInImage = (x:number, y:number) :boolean => {
-  if(x>=0 && x<imageWidth && y>=0 && y<imageHeight) {
-    return true
-  } else {
-    return false
-  }
+function drawRectangle(
+  x: number,
+  y: number,
+  length: number,
+  height: number
+) {
+  // top
+  drawHorizontalLine(x, y, length);
+  // bottom
+  drawHorizontalLine(x, y + height - 1, length);
+  // left
+  drawVerticalLine(x, y, height);
+  // right
+  drawVerticalLine(x + length - 1, y, height);
 }
+
+// draw head
+drawRectangle(0, 0, 20, 8);
+// eyes
+drawDot(7, 2);
+drawDot(12, 2);
+// smile
+drawDot(4, 4);
+drawHorizontalLine(4, 5, 12);
+drawDot(15, 4);
+
+const outputImage = (onChar = "X", offChar = " ") :string => {
+  let text = "";
+  for (let i=0; i<imageData.length; i++) {
+    if(i >0 && i % imageWidth === 0) {
+      text += "\n"
+    }
+    imageData[i] ? text += onChar : text += offChar
+  }
+  return text
+}
+
+console.log(outputImage())
