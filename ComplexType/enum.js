@@ -8,6 +8,7 @@ var Pet;
 })(Pet || (Pet = {}));
 let petOnSale = Pet.Hamster;
 console.log(petOnSale);
+//0
 let ordersArray = [
     [Pet.Rat, 2],
     [Pet.Chinchilla, 1],
