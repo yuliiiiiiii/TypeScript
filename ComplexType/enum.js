@@ -12,3 +12,4 @@ let ordersArray = [
     [Pet.Chinchilla, 1],
     [Pet.Hamster, 3]
 ];
+ordersArray.push([Pet.Rabbit, 2]);

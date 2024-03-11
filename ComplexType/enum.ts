@@ -12,3 +12,5 @@ let ordersArray:[Pet, number][] = [
   [Pet.Hamster, 3]
 ]
 
+// ordersArray.push([Pet.Rabbit, 2]);
+//Property 'Rabbit' does not exist on type 'typeof Pet'.
