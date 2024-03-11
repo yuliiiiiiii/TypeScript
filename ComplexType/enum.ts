@@ -6,6 +6,9 @@ enum Pet {
 }
 
 let petOnSale :Pet = Pet.Hamster
+console.log(petOnSale)
+//0
+
 let ordersArray:[Pet, number][] = [
   [Pet.Rat, 2],
   [Pet.Chinchilla, 1],
