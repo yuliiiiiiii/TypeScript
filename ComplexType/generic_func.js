@@ -11,3 +11,4 @@ numberArray = getFilledArray(9, 6);
 personArray = getFilledArray({ name: 'J. Dean', age: 24 }, 6);
 coordinateArray = getFilledArray([3, 4], 6);
 console.log(coordinateArray);
+console.log(personArray);

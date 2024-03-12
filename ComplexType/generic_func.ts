@@ -13,3 +13,4 @@ personArray = getFilledArray<{name: string, age: number}>({name:'J. Dean', age:2
 coordinateArray = getFilledArray<[number, number]>([3, 4], 6);
 
 console.log(coordinateArray)
+console.log(personArray)
