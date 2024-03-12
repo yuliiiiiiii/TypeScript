@@ -17,6 +17,7 @@ function sayHappyBirthdayWithObjectTp(personObject:Person){
   console.log(output);
 }
 
+//an array of Person type
 let birthdayBabiesTp: Person[]= [
   {name: 'Liam', age: 0, giftWish: 'karate skills', success: false}, 
   {name: 'Olivia', age: 0, giftWish: 'a bright future', success:true}, 
