@@ -1,4 +1,5 @@
 "use strict";
+//custom the object type as Person
 function sayHappyBirthdayWithObjectTp(personObject) {
     let output = '';
     output += 'Happy Birthday '
@@ -14,6 +15,7 @@ function sayHappyBirthdayWithObjectTp(personObject) {
     output += 'receive it! \n';
     console.log(output);
 }
+//an array of Person type
 let birthdayBabiesTp = [
     { name: 'Liam', age: 0, giftWish: 'karate skills', success: false },
     { name: 'Olivia', age: 0, giftWish: 'a bright future', success: true },
