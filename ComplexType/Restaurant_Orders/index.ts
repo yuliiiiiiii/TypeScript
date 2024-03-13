@@ -28,12 +28,12 @@ const getOrders = (price: PriceBracket, orders: Order[][]): Order[][] => {
 }
 
 const printOrders = (restaurants: Restuanrant[], filteredOrders: Order[][]) :string => {
-  let output = ""
+  let output:string = ""
 
   restaurants.forEach((res, index) => {
     if (filteredOrders[index].length > 0) {
       output += res.name + "\n";
-      orders[index].forEach(dish => {
+      filteredOrders[index].forEach(dish => {
         output += "- " + dish.name + ": $" + dish.price + "\n"
       })
     }
@@ -42,3 +42,5 @@ const printOrders = (restaurants: Restuanrant[], filteredOrders: Order[][]) :str
   return output
 }
 
+const eligibleOrders = getOrders(PriceBracket.Low, orders);
+console.log(printOrders(restaurants, eligibleOrders));
