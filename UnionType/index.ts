@@ -33,6 +33,7 @@ function searchEvents(options: SearchEventsOptions) {
   return events.filter((event: Course | StudyGroup) => {
     if(typeof options.query === 'number') {
      return event.id === options.query ? true : false
+     //he reason we are allowed to access the id property on event is that both Course and StudyGroup share the id: number key and value.
     }
     if(typeof options.query === 'string') {
       return event.keywords.includes(options.query) ? true : false
