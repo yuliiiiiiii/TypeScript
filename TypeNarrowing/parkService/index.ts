@@ -81,4 +81,14 @@ const combinedVolunteers = combineVolunteers([...wolfPointVolunteers, ...raccoon
 
 let result = calculateHours(combinedVolunteers)
 console.log(result.sort(byHours))
+// [
+//   { id: 403, name: 'Joanna Reilly', hours: 8 },
+//   { id: 400, name: 'Sarah Galloway', hours: 7 },
+//   { id: 102, name: 'Raj Wardle', hours: 6 },
+//   { id: 401, name: 'Cormac Mcfarlane', hours: 5 },
+//   { id: 103, name: 'Rayan Gutierrez', hours: 5 },
+//   { id: 101, name: 'Leigh Gilmour', hours: 4 },
+//   { id: 100, name: 'Rose Sutton', hours: 3 },
+//   { id: 402, name: 'Maisha Mcconnell', hours: 0 }
+// ]
 
