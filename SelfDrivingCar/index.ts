@@ -1,66 +1,66 @@
-import { getObstacleEvents } from './computer-vision';
+import { getObstacleEvents } from "./computer-vision";
 
 interface Events {
-  [Obstavle: string] : boolean
+  [Obstavle: string]: boolean;
 }
 
 interface AutonomousCar {
-  isRunning?: boolean
-  respond: (events: Events) => void
+  isRunning?: boolean;
+  respond: (events: Events) => void;
 }
 
 interface AutonomousCarProps {
-  isRunning?: boolean
-  steeringControl: Steering
+  isRunning?: boolean;
+  steeringControl: Steering;
 }
 
 interface Control {
-  execute: (command: string) => void
+  execute: (command: string) => void;
 }
 
-interface Steering extends Control{
-  turn: (direction: string) => void
+interface Steering extends Control {
+  turn: (direction: string) => void;
 }
 
 class SteeringControl implements Steering {
-  execute(command: string){
-    console.log(`Executing: ${command}`)
+  execute(command: string) {
+    console.log(`Executing: ${command}`);
   }
 
-  turn(direction: string){
-    this.execute(`turn ${direction}`)
+  turn(direction: string) {
+    this.execute(`turn ${direction}`);
   }
 }
 
-class Car implements AutonomousCar{
-  isRunning; 
-  
+class Car implements AutonomousCar {
+  isRunning;
+
   steeringControl;
 
-  constructor(props:AutonomousCarProps){
-    this.isRunning = props.isRunning
-    this.steeringControl = props.steeringControl
-  };
+  constructor(props: AutonomousCarProps) {
+    this.isRunning = props.isRunning;
+    this.steeringControl = props.steeringControl;
+  }
 
-  respond(events: Events){
-    if(!this.isRunning) {
-      return console.log('The car is off')
+  respond(events: Events) {
+    if (!this.isRunning) {
+      return console.log("The car is off");
     }
-    Object.keys(events).forEach(eventKey =>{
-      if(!events[eventKey]) {
-        return
+    Object.keys(events).forEach((eventKey) => {
+      if (!events[eventKey]) {
+        return;
       }
-      if(eventKey === 'ObstacleLeft') {
-        this.steeringControl.turn('right')
+      if (eventKey === "ObstacleLeft") {
+        this.steeringControl.turn("right");
       }
-      if(eventKey === 'ObstacleRight') {
-        this.steeringControl.turn('left')
+      if (eventKey === "ObstacleRight") {
+        this.steeringControl.turn("left");
       }
-    })
+    });
   }
 }
 
-let steering = new SteeringControl
+let steering = new SteeringControl();
 
-let autonomousCar = new Car({isRunning: true, steeringControl: steering})
-autonomousCar.respond(getObstacleEvents())
+let autonomousCar = new Car({ isRunning: true, steeringControl: steering });
+autonomousCar.respond(getObstacleEvents());
